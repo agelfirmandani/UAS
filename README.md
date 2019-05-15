@@ -1,7 +1,7 @@
 # UAS
-Uas Pemograman Grafissssss
-``` Topik yang kita buat tentang simulasi permainan wahana contohnya seperti bianglala.
-
+Uas Pemograman Grafis
+``` 
+Topik yang kita buat tentang simulasi permainan wahana contohnya seperti bianglala.
 Anggota Kelompok :
 1.Agel Firman Dani Kurniawan (161111005)
 2.Muhammad Irfan Faishol (161111033)
