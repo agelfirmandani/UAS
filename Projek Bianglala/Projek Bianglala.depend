@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1561388636 source:c:\users\user\documents\github\uas\projek bianglala\main.cpp
+	<windows.h>
+	<math.h>
+	<stdlib.h>
+	<GL/glut.h>
+	<stdio.h>
+	<math.h>
+	<GL/glut.h>
+	<string.h>
+	<assert.h>
+	<stdarg.h>
+
