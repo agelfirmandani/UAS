@@ -33,6 +33,8 @@ void garis_xy(){
 
 glTranslated(_x,_y,_z);
 
+
+
      float i;
 
             glColor3f( 1.0, 1.0, 1.0);
@@ -221,14 +223,14 @@ void renderScene(void) {
    /////////////////bianglala////////////////////////
 
 	//Menggambar Halaman
-	/*glColor3f(0, 3, 0);
+	glColor3f(0, 3, 0);
 	glBegin(GL_QUADS);
 		glVertex3f(-40.0, 0.1, -40.0);
 		glVertex3f(-40.0, 0.1,  40.0);
 		glVertex3f( 40.0, 0.1,  40.0);
 		glVertex3f( 40.0, 0.1, -40.0);
 	glEnd();
-*/
+
 
     glutSwapBuffers();
 }
@@ -327,7 +329,7 @@ int main(int argc, char **argv) {
 	 glutInitWindowSize(640,360);
 
      //Membuat windows Latihan
-	 glutCreateWindow("Bianglala");
+	 glutCreateWindow("3 wahana bermain");
 
      glClearColor( 0.1, 0.5, 1, 0);
      //Fungsi utama untuk menampilkan objek
