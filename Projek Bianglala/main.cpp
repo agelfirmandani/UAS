@@ -13,13 +13,6 @@
 /**********************
  * Deklarasi variabel
  **********************/
-float angle2=0.0;    // Variable sudut pada saat animasi
-float red=1.0, blue=0.3, green=0.5;
-float sudut=0.0;
-float asd=0.0, fgh=0.0;
-float _x=0,_y=0,_z=0;
-float ert=0.0, yui=0.0;
-
 //Variable untuk manipulasi sudut pandang
 static float angle=0.0,ratio;            //Sudut perputaran kamera (terhadap sumbu y)
 static float x=0.0f,y=10.75f,z=55.0f;      //Posisi Kamera
