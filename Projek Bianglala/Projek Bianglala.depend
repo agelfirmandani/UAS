@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1561387435 source:d:\kuliah stiki\latihan pemrograman grafis\projek bianglala\main.cpp
+1562836694 source:d:\kuliah stiki\latihan pemrograman grafis\projek bianglala\main.cpp
 	<windows.h>
 	<math.h>
 	<stdlib.h>
@@ -339,16 +339,4 @@
 
 1512590989 c:\mingw\include\assert.h
 	<_mingw.h>
-
-1563260190 source:c:\users\yolex\documents\github\uas 1\uas\projek bianglala\main.cpp
-	<windows.h>
-	<math.h>
-	<stdlib.h>
-	<GL/glut.h>
-	<stdio.h>
-	<math.h>
-	<GL/glut.h>
-	<string.h>
-	<assert.h>
-	<stdarg.h>
 

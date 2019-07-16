@@ -9,66 +9,20 @@
 #include <assert.h>
 #include <stdarg.h>
 
-
 /**********************
- * Deklarasi variabel
+ * Deklarasi variabel *
  **********************/
 //Variable untuk manipulasi sudut pandang
 static float angle=0.0,ratio;            //Sudut perputaran kamera (terhadap sumbu y)
 static float x=0.0f,y=10.75f,z=55.0f;      //Posisi Kamera
 static float lx=0.0f,ly=0.0f,lz=-1.0f;   //Vektor sudut pandang
-float _x=0,_y=0,_z=0;
+
 float view_rotx = 0.0f, view_roty = 0.0f;
 int oldMouseX, oldMouseY; //variable untuk function mousecontrol
 
-void garis_xy(){
-
-
-     glPushMatrix();
-
-    glTranslated(_x,_y,_z);
-
-
-
-     float i;
-
-            glColor3f( 1.0, 1.0, 1.0);
-  	        glBegin( GL_LINES);
-
-            for (i=-20; i<20; i=i+1) {
-
-                   glVertex3f( -20, i, 0);
-                  glVertex3f( 20, i, 0);
-                   glVertex3f( i,-20, 0);
-                  glVertex3f( i,20, 0);
-                  }
-
-
-           glEnd();
-            glPopMatrix();
-
-          glutSwapBuffers();
-           }
-//BIANGLALA
-float qwe = 1.0;
-float angl = 5.0;
-
-void mouseControl(int button, int state, int x, int y){
-    oldMouseX = x;
-    oldMouseY = y;
-    }
-
-    void mouseMotion(int x, int y){
-    int getX = x;
-    int getY = y;
-    float thetaY = 0.1f*(getX - oldMouseX)/380;
-    float thetaX = 0.1f*(getY - oldMouseY)/380;
-    oldMouseX = getX;
-    oldMouseY = getY;
-    view_rotx += thetaX;
-    view_roty += thetaY;
-    }
-
+//untuk perputaran bianglala
+float qwe = 0;
+float angl = 0;
 void ada(){
      glPushMatrix();
         glTranslatef(0,0,0.5);
@@ -193,7 +147,6 @@ void kaki(){
     glPopMatrix();
 
 }
-//////////////////////////BIANGLALA/////////////////////////////////
 
 void alas(){
      //Menggambar Tanah
@@ -214,34 +167,27 @@ void alas(){
 
 void renderScene(void) {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-
-
-
+    /////////////////bianglala////////////////////////
     glPushMatrix();
-                   alas();
+    alas();
     glPopMatrix();
-
-
-
     glPushMatrix();
-
-                   glTranslatef(-20,16,-20);
+                   glTranslatef(-5,17,-10);
                    glScalef(3,3,3);
-                   glRotatef(135,0,1,0);
+                   glRotatef(150,0,1,0);
                    ada();
                    ass();
                    kaki();
                    glPushMatrix();
-                                  glRotatef(qwe,0,0,1);
-                                  duduk();
+                        glRotatef(qwe,0,0,1);
+                        duduk();
                    glPopMatrix();
                    glColor3f(1.0,1.0,1.0);
    glPopMatrix();
    /////////////////bianglala////////////////////////
 
 	//Menggambar Halaman
-	glColor3f(0, 3, 0);
+	glColor3f(0, 1, 0);
 	glBegin(GL_QUADS);
 		glVertex3f(-40.0, 0.1, -40.0);
 		glVertex3f(-40.0, 0.1,  40.0);
@@ -254,7 +200,6 @@ void renderScene(void) {
 
     glutSwapBuffers();
 }
-
 
 // Fungsi untuk menyesuaikan perspektif ketika window dirubah ukurannya
 void changeSize(int w, int h) {
@@ -306,7 +251,6 @@ void moveMeFlat(int direction) {
 			  0.0f,1.0f,0.0f);
 }
 
-
 void inputKey(int key, int x, int y) {
 
 	switch (key) {
@@ -333,7 +277,21 @@ const GLfloat mat_diffuse[]    = { 0.8f, 0.8f, 0.8f, 1.0f };
 const GLfloat mat_specular[]   = { 1.0f, 1.0f, 1.0f, 1.0f };
 const GLfloat high_shininess[] = { 100.0f };
 
+void mouseControl(int button, int state, int x, int y){
+    oldMouseX = x;
+    oldMouseY = y;
+    }
 
+void mouseMotion(int x, int y){
+    int getX = x;
+    int getY = y;
+    float thetaY = 0.1f*(getX - oldMouseX)/380;
+    float thetaX = 0.1f*(getY - oldMouseY)/380;
+    oldMouseX = getX;
+    oldMouseY = getY;
+    view_rotx += thetaX;
+    view_roty += thetaY;
+    }
 //Fungsi utama
 int main(int argc, char **argv) {
      //argc -> a pointer to the unmodified argc variable from the main function
@@ -349,15 +307,16 @@ int main(int argc, char **argv) {
 	 glutInitWindowSize(640,360);
 
      //Membuat windows Latihan
-	 glutCreateWindow("3 wahana bermain");
+	 glutCreateWindow("Anting - anting");
 
      glClearColor( 0.1, 0.5, 1, 0);
      //Fungsi utama untuk menampilkan objek
      glutDisplayFunc(renderScene);
 
+     //Mengaktifkan fungsi kontrol mouse
      glutMouseFunc(mouseControl);
      glutMotionFunc(mouseMotion);
-     //Mengaktifkan fungsi kontrol mouse
+
 
      //Fungsi yang dijalankan dalam keadaan idle
      glutIdleFunc(renderScene);
@@ -387,8 +346,6 @@ int main(int argc, char **argv) {
     glMaterialfv(GL_FRONT, GL_DIFFUSE,   mat_diffuse);
     glMaterialfv(GL_FRONT, GL_SPECULAR,  mat_specular);
     glMaterialfv(GL_FRONT, GL_SHININESS, high_shininess);
-
-
      //Never ending loop, agar layar tidak langsung tertutup
  	 glutMainLoop();
 
