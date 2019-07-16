@@ -61,8 +61,8 @@ void mouseControl(int button, int state, int x, int y){
     void mouseMotion(int x, int y){
     int getX = x;
     int getY = y;
-    float thetaY = 360.0f*(getX - oldMouseX)/640;
-    float thetaX = 360.0f*(getY - oldMouseY)/480;
+    float thetaY = 0.1f*(getX - oldMouseX)/380;
+    float thetaX = 0.1f*(getY - oldMouseY)/380;
     oldMouseX = getX;
     oldMouseY = getY;
     view_rotx += thetaX;
@@ -169,6 +169,7 @@ angl-=1;
 }
 
 void ass(){
+
     GLUquadric *quadric = gluNewQuadric();
     glPushMatrix();
         glColor3f(0.5,1.5,0.5);
@@ -214,10 +215,8 @@ void alas(){
 void renderScene(void) {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    glTranslatef(0.5f, 0.5f, 0.5f);
-	glRotatef(view_rotx, 0.0f, 1.0f, 0.0f);
-    glRotatef(view_roty, 0.0f, 1.0f, 0.0f);
-    glTranslatef(-0.5f, -0.5f, -0.5f);
+
+
 
     glPushMatrix();
                    alas();
@@ -250,7 +249,8 @@ void renderScene(void) {
 		glVertex3f( 40.0, 0.1, -40.0);
 	glEnd();
 
-
+	glRotatef(view_rotx, 0.0f, 1.0f, 0.0f);
+    glRotatef(view_roty, 0.0f, 1.0f, 0.0f);
 
     glutSwapBuffers();
 }
