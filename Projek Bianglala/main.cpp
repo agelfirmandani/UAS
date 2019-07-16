@@ -17,7 +17,8 @@
 static float angle=0.0,ratio;            //Sudut perputaran kamera (terhadap sumbu y)
 static float x=0.0f,y=10.75f,z=55.0f;      //Posisi Kamera
 static float lx=0.0f,ly=0.0f,lz=-1.0f;   //Vektor sudut pandang
-
+float view_rotx = 20.0f, view_roty = 30.0f;
+int oldMouseX, oldMouseY; //variable untuk function mousecontrol
 
 void garis_xy(){
 
@@ -50,6 +51,23 @@ glTranslated(_x,_y,_z);
 //BIANGLALA
 float qwe = 1.0;
 float angl = 5.0;
+
+void mouseControl(int button, int state, int x, int y){
+    oldMouseX = x;
+    oldMouseY = y;
+    }
+
+    void mouseMotion(int x, int y){
+    int getX = x;
+    int getY = y;
+    float thetaY = 360.0f*(getX - oldMouseX)/640;
+    float thetaX = 360.0f*(getY - oldMouseY)/480;
+    oldMouseX = getX;
+    oldMouseY = getY;
+    view_rotx += thetaX;
+    view_roty += thetaY;
+    }
+
 void ada(){
      glPushMatrix();
         glTranslatef(0,0,0.5);
