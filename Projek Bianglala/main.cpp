@@ -25,7 +25,7 @@ void garis_xy(){
 
      glPushMatrix();
 
-glTranslated(_x,_y,_z);
+    glTranslated(_x,_y,_z);
 
 
 
@@ -345,6 +345,10 @@ int main(int argc, char **argv) {
      glClearColor( 0.1, 0.5, 1, 0);
      //Fungsi utama untuk menampilkan objek
      glutDisplayFunc(renderScene);
+
+     glutMouseFunc(mouseControl);
+     glutMotionFunc(mouseMotion);
+     //Mengaktifkan fungsi kontrol mouse
 
      //Fungsi yang dijalankan dalam keadaan idle
      glutIdleFunc(renderScene);
